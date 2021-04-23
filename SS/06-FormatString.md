@@ -104,10 +104,72 @@ int main() {
 
 ![](assets/image-20210414110825175.png)
 
-### Attack1
+### Attack1 crash
 
 当输入"%s%s%s"（三个及以上）时就会crack，因为把RA给改了
 
-### Attack2
+### Attack2 read
 
 We need to calculate the offset between secret and va_list: The fifth %x
+
+### Attack3 change(can decide)
+
+%n: write how many characters(实际输出了几个) we have printed into memory pointed  by va_list
+
+https://www.geeksforgeeks.org/g-fact-31/
+
+```c
+#include <stdio.h>
+int main() {
+    int a = 1;
+    printf("1234%n\n", &a);
+    printf("%d\n", a);
+    printf("1234%d%n\n", a, &a);
+    printf("%d\n", a);
+    a = 111;
+    printf("1234%d%n\n", a, &a);
+    printf("%d\n", a);
+}
+
+/*
+Output:
+1234
+4
+12344
+5
+1234111
+7
+*/
+```
+
+### Attack4 Modify(decide)
+
+* Use `.` to make length
+* Use `hn, hhn` to control length
+* Use `%7$n` to change location
+
+`printf(“%.5d”, 10) -> 00010`
+
+```c
+#include <stdio.h>
+int main() {
+    int a, b, c;
+    a = b = c = 0x11223344;
+    printf("1234%n\n", &a);
+    printf("0x%x\n", a);
+    printf("1234%hn\n", &b);
+    printf("0x%x\n", b);
+    printf("1234%hhn\n", &c);
+    printf("0x%x\n", c);
+}
+
+/*
+Output:
+1234
+0x4
+1234
+0x11220004
+1234
+0x11223304
+*/
+```

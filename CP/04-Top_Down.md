@@ -8,6 +8,14 @@
 
 Reference: [编译原理语法分析之LL(1) parser - 复制未来 (copyfuture.com)](https://copyfuture.com/blogs-details/20200709094254303w0gyxbowfalywr7)
 
+## LL(1) Parsing Algorithm
+
+**2 kinds of actions**
+
+1. 利用文法选择A→a将栈顶部的非终结符A替换成串a（$是栈底）
+    * ==在生成动作中，从 BNF中替换掉的串a必须颠倒地压在栈中（这是因为要保证串a按自左向右的顺序进到栈的顶部）==
+2. 将栈顶部的记号与下一个输入记号匹配
+
 ## Remove Left Recursion
 
 **简单直接左递归**
@@ -74,6 +82,10 @@ The table-constructing rule:
 4. 所有没有定义的entries都是errors
 
 
+
+
+
+==注意：需要是在FIRST(α)里的，而不是能被α推导的a都行的==，例如`list -> (lexp-seq)`只能在`M(list, '(')`中
 
 ## LL(1) Grammar
 
