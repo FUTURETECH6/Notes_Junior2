@@ -12,11 +12,13 @@ Reference: [编译原理语法分析之LL(1) parser - 复制未来 (copyfuture.c
 
 **2 kinds of actions**
 
-1. 利用文法选择A→a将栈顶部的非终结符A替换成串a（$是栈底）
+1. Generate：利用文法选择A→a将栈顶部的非终结符A替换成串a（$是栈底）
     * ==在生成动作中，从 BNF中替换掉的串a必须颠倒地压在栈中（这是因为要保证串a按自左向右的顺序进到栈的顶部）==
-2. 将栈顶部的记号与下一个输入记号匹配
+2. Match：将栈顶部的记号与下一个输入记号匹配
 
-## Remove Left Recursion
+## Preparation
+
+### Remove Left Recursion
 
 **简单直接左递归**
 
@@ -54,6 +56,15 @@ for i = 1 to n:
     remove the immediate left recursion involving A_i;
 ```
 
+### Extract Left Factor
+
+A -> αβ | αγ
+
+改为
+
+A -> αA'
+A' -> β | γ
+
 ## LL(1) Parsing Table
 
 The general LL(1) Parsing table definition:
@@ -75,9 +86,9 @@ The table-constructing rule:
 
 1. 对于每一条分解开的产生式 A → α 重复步骤2&3
 
-2. 如果a in FIRST(α)，将A → α添加进M[A, a]
+2. 如果a in FIRST(B)，将A → B添加进M[A, a]
 
-3. 如果ε in FIRST(α)，将A → α添加进M\[A, b\](b是FOLLOW(A)中的所有终结符)
+3. 如果ε in FIRST(B)，对于FOLLOW(A)中的所有终结符（包括`$`）b，将A → B添加进M\[A, b\]中
 
 4. 所有没有定义的entries都是errors
 
@@ -86,6 +97,10 @@ The table-constructing rule:
 
 
 ==注意：需要是在FIRST(α)里的，而不是能被α推导的a都行的==，例如`list -> (lexp-seq)`只能在`M(list, '(')`中
+
+
+
+==Parser的使用看作业==
 
 ## LL(1) Grammar
 

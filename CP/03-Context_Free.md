@@ -1,14 +1,28 @@
 # Parse Tree & Abstract Syntax Tree
 
+==看作业==
+
 ## Parse Tree
 
+一个Parse Tree只与一个Leftmost Derivation相对应
+
 ## Abstract syntax tree
+
+一个抽象语法树可以对应多个推导过程
 
 [compiler construction - What's the difference between parse tree and AST? - Stack Overflow](https://stackoverflow.com/questions/5026517/whats-the-difference-between-parse-tree-and-ast)
 
 # Ambiguity
 
 ## Ambiguity grammars
+
+可生成带有两个不同分析树（语法树也一样的？不一样）的串（L(G)）的文法称作二义性文法（ambiguous grammar）。
+
+
+
+造成二义性的原因是：文法中没有体现出结合率和优先级。
+
+
 
 Two basic methods :
 

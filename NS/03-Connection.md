@@ -124,8 +124,6 @@ A发给B的自己的公钥通过了中间人，中间人将自己的公钥发给
 
 
 
-
-
 <u>Domain Name, Public Key, CA Name, CA Signature</u>
 
 * CA: <u>query locally built-in certificate store</u>
