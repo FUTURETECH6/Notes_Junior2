@@ -1,5 +1,3 @@
-
-
 [TOC]
 
 # Overview of Bottom-Up Parsing

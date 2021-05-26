@@ -1,5 +1,11 @@
 [TOC]
 
+# Top-down parsing
+
+Example
+
+![](assets/image-20210508180208470.png)
+
 # LL(1) Parsing
 
 > An LL parser is called an LL(*k*) parser if it uses *k* [tokens](https://en.wikipedia.org/wiki/Token_(parser)) of [lookahead](https://en.wikipedia.org/wiki/Parsing#Lookahead) when parsing a sentence. A grammar is called an [LL(*k*) grammar](https://en.wikipedia.org/wiki/LL_grammar) if an LL(*k*) parser can be constructed from it. A formal language is called an LL(*k*) language if it has an LL(*k*) grammar.
@@ -82,8 +88,6 @@ The table-constructing rule:
 1. If A→α is a production choice, and there is a derivation α =>\* *a*β, where "*a*" is a token, then add A→ α to the table entry M[A, *a*];
 2. If A→α is a production choice, and there are derivations α =>\* ε  and   S\$ =>\* βA*a*γ, where S is the start symbol and "*a*" is a token (or \$), then add A→α to the table entry M[A, *a*];
 
-
-
 1. 对于每一条分解开的产生式 A → α 重复步骤2&3
 
 2. 如果a in FIRST(B)，将A → B添加进M[A, a]
@@ -94,9 +98,14 @@ The table-constructing rule:
 
 
 
-
-
 ==注意：需要是在FIRST(α)里的，而不是能被α推导的a都行的==，例如`list -> (lexp-seq)`只能在`M(list, '(')`中
+
+
+
+**定理：**<u>若满足以下条件，则BNF中的文法就是LL(1)文法</u>
+
+1. 在每个产生式 A→ a~1~ | a~2~ | ... | a~n~ 中，对于所有的i和j：1≤i, j≤n, i≠j，First(a~i~) ∩ First(a~j~)为空。
+2. 若对于每个非终结符A都有First(A)包含了ε，那么First(A) ∩ Follow(A)为空。
 
 
 
@@ -174,11 +183,4 @@ Ex. CNBook P128-4.10
 
 **含义**：<u>可能在某个句型中紧跟在A后边的终结符a的集合</u>
 
-# Top-down parsing
-
-# LL(k) grammars
-
-# Transform Grammar into LL form
-
-# Recurisive-descent parsing
-
+## LL(k) grammars
