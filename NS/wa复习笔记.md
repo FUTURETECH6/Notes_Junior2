@@ -4,7 +4,7 @@
 
 # 01 Crypotography
 
-## 1-1 symmetric & asymmetric cryptography 
+## 1-1 symmetric & asymmetric cryptography
 
 密码学遵循的四点原则：
 
@@ -15,7 +15,7 @@
 
 Symmetric
 
-- only a private key, both encryption and decryption 
+- only a private key, both encryption and decryption
 
 - Disadvantages: too many keys：1 key for each pair
 
@@ -120,7 +120,7 @@ Proof-of-stake
 
 ## 2-3 Mining Attacks
 
-selfish mining attack 
+selfish mining attack
 
 - 正常挖矿中，挖到后会立即广播结果，防止被别人抢走
 - 攻击者hold blocks for some time and release several blocks at once
@@ -284,7 +284,7 @@ onion-routing
     - randomly select a series of Tors
     - relay messages across them
     - Tor exit relays messages to destination
-- Leaked routing info: neighborship only 
+- Leaked routing info: neighborship only
 
 # 05 secure routing
 
@@ -495,7 +495,7 @@ secure Wi-Fi more: IEEE 802.11i（elements是否需要掌握）
       - message integrity: adds a message integrity code to the 802.11 MAC frame after the data field
     - Counter mode CBC MAC Protocol (CCMP)
       - Intended for newer IEEE 802.11 devs that are equipped with the hardware to support this scheme
-      - data confidentiality: Use the CTR block cipher mode of operation with AES for encryption 
+      - data confidentiality: Use the CTR block cipher mode of operation with AES for encryption
       - message integrity: use the cipher-block-chaining message authentication code (CBC-MAC)
 
 # 07 Denial-of-Service Attack
@@ -504,7 +504,7 @@ secure Wi-Fi more: IEEE 802.11i（elements是否需要掌握）
 
 DoS
 
-- 
+-
     - Control an attacking computer/device
     - Flood victim with superfluous requests
     - <u>Overload victim and prevent it from fulfilling some legitimate requests</u>
@@ -521,7 +521,7 @@ DDoS
 
 数据链路层
 
-- send too much traffic for switches/routers to handle 
+- send too much traffic for switches/routers to handle
 
 网络层（smurf）(asymmetric DDoS)
 
@@ -570,7 +570,7 @@ Other amplifiers
       - 源IP填的是受害人的
       - 包中使用ANY这样的参数来确保应答的结果最大化
   - 1 query vs many responses
-  - Defend: 
+  - Defend:
     - reduce the number of open resolvers
     - source IP verification
 - NTP Amplification Attack

@@ -75,7 +75,7 @@ A' -> β | γ
 
 The general LL(1) Parsing table definition:
 
-* The table is a two-dimensional array indexed by non-terminals and terminals 
+* The table is a two-dimensional array indexed by non-terminals and terminals
 * The table contains production choices to use at the appropriate parsing step, which called M[N,T].
     * N is the set of non-terminals of the grammar;
     * T is the set of terminals or tokens (including $);
@@ -83,7 +83,7 @@ The general LL(1) Parsing table definition:
 
 
 
-The table-constructing rule: 
+The table-constructing rule:
 
 1. If A→α is a production choice, and there is a derivation α =>\* *a*β, where "*a*" is a token, then add A→ α to the table entry M[A, *a*];
 2. If A→α is a production choice, and there are derivations α =>\* ε  and   S\$ =>\* βA*a*γ, where S is the start symbol and "*a*" is a token (or \$), then add A→α to the table entry M[A, *a*];
@@ -116,7 +116,7 @@ The table-constructing rule:
 Definition of LL(1) Grammar:
 
 * <u>A grammar is an LL(1) grammar if the associated LL(1) parsing table has at most one production in each table entry.</u>
-* <u>An LL(1) grammar cannot be ambiguous.</u> 
+* <u>An LL(1) grammar cannot be ambiguous.</u>
 
 # First & Follow Set
 

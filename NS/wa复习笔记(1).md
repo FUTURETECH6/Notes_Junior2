@@ -4,13 +4,13 @@
 
 ### 01 Crypotography
 
-#### 1-1 symmetric & asymmetric cryptography 
+#### 1-1 symmetric & asymmetric cryptography
 
 密码学遵循的四点原则
 
 Symmetric
 
-- only a private key, both encryption and decryption 
+- only a private key, both encryption and decryption
 
 - Disadvantages: too many keys
 
@@ -93,7 +93,7 @@ Proof-of-stake
 
 #### 2-3 Mining Attacks
 
-selfish mining attack 
+selfish mining attack
 
 - 正常挖矿中，挖到后会立即广播结果，防止被别人抢走
 - 攻击者hold blocks for some time and release several blocks at once
@@ -196,7 +196,7 @@ Overlay network
   - Anonymity largely depends on the location of the attacker
 - evade attacker ——source routing (specify on-path routers by source)
 
-#### 4-3 routing used for anonymity 
+#### 4-3 routing used for anonymity
 
 POF-based source routing(???)
 
@@ -261,7 +261,7 @@ routing attacks and examples
 
 #### 5-4 Attacking examples  ?
 
-Prefix Hijacking 
+Prefix Hijacking
 
 Path Tampering 篡改路径
 
@@ -379,7 +379,7 @@ secure Wi-Fi more: IEEE 802.11i (elements是否需要掌握？)
   - message integrity: adds a message integrity code to the 802.11 MAC frame after the data field
 - Counter mode CBC MAC Protocol
   - Intended for newer IEEE 802.11 devs that are equipped with the hardware to support this scheme
-  - message confidentiality: Use the CTR block cipher mode of operation with AES for encryption 
+  - message confidentiality: Use the CTR block cipher mode of operation with AES for encryption
   - message integrity: use the cipher-block-chaining message authentication code (CBC-MAC)
 
 ### 07 Denial-of-Service Attack
@@ -405,7 +405,7 @@ OSI 5 Layer Model图????????
 
 link layer
 
-- send too much traffic for switches/routers to handle 
+- send too much traffic for switches/routers to handle
 
 应用层
 
@@ -421,7 +421,7 @@ link layer
 - 利用TCP三次握手的特点，不完成最后一次握手，使服务器一直等待直至超时（这样的连接称为半开连接）
 - TCP handshake图
 - 具体实现：向服务器发送大量伪造IP地址的TCP连接请求，由于IP地址是伪造的，无法完成最后一次握手，此时服务器中有大量半开连接存在，这些半开连接占用了服务器的资源，使服务器无法响应新的正常连接
-- Defend：increase backlog queue size; decrease timeout 
+- Defend：increase backlog queue size; decrease timeout
 
 网络层（smurf）(asymmetric DDoS)
 
@@ -453,7 +453,7 @@ Other amplifiers
   - amplify the effect of DNS query
   - 1 query vs many responses
   - EDNS ?
-  - Defend: 
+  - Defend:
     - reduce the number of open resolvers
     - source IP verification
 - NTP Amplification Attack

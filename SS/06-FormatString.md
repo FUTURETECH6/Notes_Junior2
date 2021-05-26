@@ -15,7 +15,7 @@
 int myprint(int Narg, ...) {
     int i;
     va_list ap;
-    
+
     va_start(ap, Narg);
     for (i = 0; i < Narg; i++) {
         printf("%d\t", va_arg(ap, int));
@@ -45,7 +45,7 @@ call `myprint(2, 2, 3.5, 3, 4.5)`
 |              |
 ```
 
-`void va_start(va_list ap, last)` 
+`void va_start(va_list ap, last)`
 
 Try [man stdarg](> main stdarg)
 

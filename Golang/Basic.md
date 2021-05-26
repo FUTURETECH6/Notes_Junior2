@@ -120,7 +120,7 @@ var a  // Error
 
 v_name = value  // 用`:=`必须省略var
 // 如下
-var intVal int 
+var intVal int
 intVal :=1 // 这时候会产生编译错误
 intVal,intVal1 := 1,2 // 此时不会产生编译错误，因为有声明新的变量，因为 := 是一个声明语句
 
@@ -212,9 +212,9 @@ switch var1 {
 // Type Switch
 switch x.(type){
     case type:
-       statement(s);      
+       statement(s);
     case type:
-       statement(s); 
+       statement(s);
     /* 你可以定义任意个数的case */
     default: /* 可选 */
        statement(s);

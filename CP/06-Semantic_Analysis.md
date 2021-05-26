@@ -126,7 +126,7 @@ digit -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 [Differences between Synthesized and Inherited Attributes - GeeksforGeeks](https://www.geeksforgeeks.org/differences-between-synthesized-and-inherited-attributes/)
 
 * synthesized
-     * An attribute is synthesized 
+     * An attribute is synthesized
           * if all its dependencies point from child to parent in the parse tree.
           * given a grammar rule A -> X~1~X~2~…X~n~, the only associated attribute equation with an A.a on the left-hand side is of the form:
           * A.a = f(X~1~.a~1~, …, X~1~.a~k~, …, X~n~.a~1~, …, X~n~.a~k~)
@@ -236,7 +236,7 @@ Basic kinds
 
 A language is **block structured** if
 
-* it permits the nesting of blocks inside other blocks 
+* it permits the nesting of blocks inside other blocks
 * the scope of declarations in a block are limited to that block and other block contained in that block
 
 
@@ -301,5 +301,5 @@ How to avoid?
 
 ## Type names, type declarations and recursive type
 
-# A semantic analyzer for the TINY language 
+# A semantic analyzer for the TINY language
 

@@ -230,7 +230,7 @@ A -> aAb | a
 B -> d
 
 [0] S’ -> .S ($)  // DON'T FORGET THIS
-S -> .AB  ($) 
+S -> .AB  ($)
 A -> .aAb (d)  // First(B$)
 A -> .a   (d)  // First(B$)
 

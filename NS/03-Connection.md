@@ -63,7 +63,7 @@ https://medium.com/iocscan/how-dnssec-works-9c652257be0
 
 ### Prelude
 
-1. The resolver queries the DNS server for a record (ex. A) 
+1. The resolver queries the DNS server for a record (ex. A)
 2. The DNS server returns the RRset containing the record as well as the RRSIG record containing the signature of RRset signed by the ZSK
 3. The resolver then queries the DNS server for the DNSKEY record to retrieve the public ZSK to validate the signature
 

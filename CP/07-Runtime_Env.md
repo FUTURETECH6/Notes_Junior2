@@ -136,23 +136,23 @@ What vary? number of objs / size of each obj
  void p(int x, double y) {
      char a;
      int i;
- 
+
      // ...
- 
+
      {  // Block A
          double x;
          int j;
          // ...
      }
- 
+
      // ...
- 
+
      {  // Block B
          char *a;
          int k;
          // ...
      }
- 
+
      // ...
  }
  ```
@@ -179,7 +179,7 @@ var n: integer;
         (* a ref to `n` is now non-local and non-global,
            but it should be the p.n *)
     end; (* q end *)
-    
+
     procedure r(n: integer);
     begin
         q;

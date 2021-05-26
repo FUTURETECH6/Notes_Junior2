@@ -4,13 +4,13 @@
 
 ### 01 Crypotography
 
-#### 1-1 symmetric & asymmetric cryptography 
+#### 1-1 symmetric & asymmetric cryptography
 
 密码学遵循的四点原则
 
 Symmetric
 
-- only a private key, both encryption and decryption 
+- only a private key, both encryption and decryption
 
 - Disadvantages: too many keys
 
@@ -93,7 +93,7 @@ Proof-of-stake
 
 #### 2-3 Mining Attacks
 
-selfish mining attack 
+selfish mining attack
 
 - 正常挖矿中，挖到后会立即广播结果，防止被别人抢走
 - 攻击者hold blocks for some time and release several blocks at once
@@ -178,7 +178,7 @@ Overlay network
 - Intermediary between sender and receiver
 - sender relays all traffic through proxy
 - encrypt destination and payload
-- asymmetric technique: receiver not involved anonymity 
+- asymmetric technique: receiver not involved anonymity
 - receiver 作为 attacker 时，匿名可以保护sender不被识别身份信息
 - 优点:
   - easy to configue
@@ -190,7 +190,7 @@ Overlay network
   - Anonymity largely depends on the location of the attacker
 - evade attacker ——source routing (specify on-path routers by source)
 
-#### 4-3 routing used for anonymity 
+#### 4-3 routing used for anonymity
 
 POF-based source routing(了解POF本身不匿名，在源头就port bound即可)
 
@@ -228,7 +228,7 @@ Hierarchical routing
 IGP: Interior Gateway Protocol
 
 - RIP (Routing Information Protocol)
-- OSPF (Open Shortest Path First) 
+- OSPF (Open Shortest Path First)
 
 BGP: Border Gateway Protocol
 
@@ -255,9 +255,9 @@ BGP: annouce arbitrary prefix; alter paths
 
 routing attacks and examples
 
-#### 5-4 Attacking examples  
+#### 5-4 Attacking examples
 
-Prefix Hijacking 
+Prefix Hijacking
 
 Path Tampering 篡改路径
 
@@ -273,7 +273,7 @@ Higher Security Risk
 
 - Higher mobility: far more portable and mobile, thus resulting in a number of risks
 - Contrained resource: sophisticated OS but limited memory and processing resources to counter threats, including DoS and malware
-- Greater Accessibility: may be left unattended in remote or hostile locations, thus greatly increasing their vulnerability to physical attacks 
+- Greater Accessibility: may be left unattended in remote or hostile locations, thus greatly increasing their vulnerability to physical attacks
 
 what to secure
 
@@ -309,7 +309,7 @@ Evil Twin AP
 
 Man-In-The-Middle
 
-- based on rogue AP / evil twin AP 
+- based on rogue AP / evil twin AP
 - 与有线网络的中间人攻击相似
 
 Replay Attack
@@ -369,7 +369,7 @@ secure Wi-Fi more: IEEE 802.11i (elements不需要掌握)
   - message integrity: adds a message integrity code to the 802.11 MAC frame after the data field
 - Counter mode CBC MAC Protocol
   - Intended for newer IEEE 802.11 devs that are equipped with the hardware to support this scheme
-  - message confidentiality: Use the CTR block cipher mode of operation with AES for encryption 
+  - message confidentiality: Use the CTR block cipher mode of operation with AES for encryption
   - message integrity: use the cipher-block-chaining message authentication code (CBC-MAC)
 
 ### 07 Denial-of-Service Attack
@@ -393,7 +393,7 @@ DDoS
 
 link layer
 
-- send too much traffic for switches/routers to handle 
+- send too much traffic for switches/routers to handle
 
 应用层
 
@@ -437,10 +437,10 @@ link layer
 
 Other amplifiers
 
-- DNS Amplification Attack 
+- DNS Amplification Attack
   - amplify the effect of DNS query
   - 1 query vs many responses
-  - Defend: 
+  - Defend:
     - reduce the number of open resolvers
     - source IP verification
 - NTP Amplification Attack

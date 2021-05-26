@@ -9,7 +9,7 @@ Real user ID, effective user ID, saved user ID
 
 ## Principle
 
-* 对于文件权限的检查仅在打开后进行 
+* 对于文件权限的检查仅在打开后进行
 * 如果打开一个文件后meo关闭，那fd就一直有效
 * 如果用有权限的uid打开后获得了fd，其他无权限用户也可以用这个fd进行操作
 
@@ -49,16 +49,16 @@ void main(int argc, char *argv[], char *envp[]) {
     }
 }
 /* Output
-# ulysses @ JVAIOSX12 in /mnt/c/Users/Ulysses/Code/vscode_test [10:42:44] 
+# ulysses @ JVAIOSX12 in /mnt/c/Users/Ulysses/Code/vscode_test [10:42:44]
 $ bin/a.c.out 1
 
-# ulysses @ JVAIOSX12 in /mnt/c/Users/Ulysses/Code/vscode_test [10:43:01] 
+# ulysses @ JVAIOSX12 in /mnt/c/Users/Ulysses/Code/vscode_test [10:43:01]
 $ bin/a.c.out 2
 AAA=aaa
 BBB = bbb
 
 
-# ulysses @ JVAIOSX12 in /mnt/c/Users/Ulysses/Code/vscode_test [10:43:02] 
+# ulysses @ JVAIOSX12 in /mnt/c/Users/Ulysses/Code/vscode_test [10:43:02]
 $ bin/a.c.out 3
 USER=ulysses
 WT_PROFILE_ID={c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}

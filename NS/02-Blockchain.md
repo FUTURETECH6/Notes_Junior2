@@ -121,7 +121,7 @@ some users validate Alice-Bob; some Alice-Charlie: fork!
 
 (a group of) attacker controls more than 50% of the network’s computing power;
 
-how much comp power should Alice have to win?  
+how much comp power should Alice have to win?
 
 
 
@@ -131,7 +131,7 @@ how much comp power should Alice have to win?
 
 every participant joins blockchain by paying stake
 
-when choosing creator of a block, more stake with high probability 
+when choosing creator of a block, more stake with high probability
 
 
 
