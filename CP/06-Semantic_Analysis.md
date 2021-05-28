@@ -241,12 +241,30 @@ A language is **block structured** if
 
 
 
-几种symbol table的方式
+```c
+int i, j;
+int f(int size) {
+    char i, temp;
+    // ...
+    {
+        double j;
+        // ...
+    }
+    {
+        char *j;
+        // ...
+    }
+}
+```
 
-* 链表数组with next：<img src="assets/image-20210513160419150.png" style="zoom:50%;" />
-* 链表数组w/o next：<img src="assets/image-20210513160512586.png" style="zoom:50%;" />
-* 删除旧的：<img src="assets/image-20210513160548796.png" style="zoom:50%;" />
-* 一个域一个表：<img src="assets/image-20210513160704107.png" style="zoom: 50%;" />
+
+
+几种symbol table的方式
+* 一种Solution（注意：在第几列是hash出来的，而不是仅根据名字
+    1. after processing the declarations of the body of f<br /><img src="assets/image-20210513160419150.png" style="zoom:50%;" />
+    2. after processing the declarations of the second nested compound statement within the body of f<br /><img src="assets/image-20210513160512586.png" style="zoom:50%;" />
+    3. after exiting the body of f (and deleting its declarations)<br /><img src="assets/image-20210513160548796.png" style="zoom:50%;" />
+* Another solution: building a new symbol table for each scope and to link the tables from inner to outer scopes together（一个域一个表）<br /><img src="assets/image-20210513160704107.png" style="zoom: 50%;" />
 
 ## Same-level declarations
 

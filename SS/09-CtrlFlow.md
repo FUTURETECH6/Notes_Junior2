@@ -88,3 +88,46 @@ graph TB
     * Dominance-based loop recognition: entry of a loop dominates all nodes  in the loop
 * Each node n has a unique immediate dominator m which is the last dominator of n on any path from the entry to n (m idom n), m≠n
 * The immediate dominator m of n is the strict dominator of n that is closest to n
+
+## Call Graph
+
+```c
+f() {
+    g();  // 1
+    g();  // 2
+    h();  // 3
+}
+
+g() {
+    h();  // 4
+}
+
+h() {
+    f();  // 5
+    i();  // 6
+}
+
+i() {
+    // ...
+}
+```
+
+```mermaid
+graph LR
+
+f --1--> g
+f --2--> g
+f --3--> h
+g --4--> h
+h --5--> f
+h --6--> i
+```
+
+## ICFG
+
+**Interprocedural CFG**
+
+# ?
+
+**Flow Sensitivity**
+
