@@ -85,15 +85,14 @@ The general LL(1) Parsing table definition:
 
 The table-constructing rule:
 
-1. If A→α is a production choice, and there is a derivation α =>\* *a*β, where "*a*" is a token, then add A→ α to the table entry M[A, *a*];
-2. If A→α is a production choice, and there are derivations α =>\* ε  and   S\$ =>\* βA*a*γ, where S is the start symbol and "*a*" is a token (or \$), then add A→α to the table entry M[A, *a*];
+1. ~~If A→α is a production choice, and there is a derivation α =>\* *a*β, where "*a*" is a token, then add A→α to the table entry M[A, *a*];~~
+2. ~~If A→α is a production choice, and there are derivations α =>\* ε  and   S\$ =>\* βA*a*γ, where S is the start symbol and "*a*" is a token (or \$), then add A→α to the table entry M[A, *a*];~~
 
-1. 对于每一条分解开的产生式 A → α 重复步骤2&3
 
-2. 如果a in FIRST(B)，将A → B添加进M[A, a]
 
-3. 如果ε in FIRST(B)，对于FOLLOW(A)中的所有终结符（包括`$`）b，将A → B添加进M\[A, b\]中
-
+1. 对于每一条分解开的产生式 A → α 重复步骤2&3==（此处α是字符串而非单字符）==
+2. 如果a in FIRST(α)，将A → α添加进M[A, a]
+3. 如果ε in FIRST(α)，对于FOLLOW(A)中的所有终结符（包括`$`）a，将A → α添加进M\[A, a\]中
 4. 所有没有定义的entries都是errors
 
 
@@ -171,7 +170,7 @@ Ex. CNBook P128-4.10
 
 ## Follow(A)
 
-给出一个非终结符A，那么集合Follow(A)则是由终结符组成，此外可能还有\$。
+给出一个非终结符A，那么集合Follow(A)则是由终结符组成，此外可能还有\$，不能有ε。
 
 集合Follow(A)的定义如下：
 

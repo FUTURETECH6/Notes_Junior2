@@ -1,5 +1,33 @@
 [TOC]
 
+# Memory Organization During Program Execution
+
+The general organization of runtime storage：<img src="assets/image-20210629122242040.png" style="zoom:50%;" />
+
+procedure activation record：
+
+| Space for arguments (parameters)              |
+| ------------------------------------------------------------ |
+| Space for bookkeeping information, including return address |
+| Space for local data                    |
+| Space for local temporaries                 |
+
+# Fully Static Runtime Environments
+
+The entire program memory
+
+| **Code for main procedure**       | **Code area** |
+| ---------------------------------------- | -------------- |
+| **Code for procedure 1**        |        |
+| **…**                  |        |
+| **Code for procedure n**        |        |
+|                     |        |
+| **Global data area**          | **Data area** |
+| **Activation record of main procedure** |        |
+| **Activation record of procedure 1**  |        |
+| **…**                  |        |
+| **Activation record of procedure n**  |        |
+
 # Stack-Based Runtime Env
 
 ## SB Env w/o Local Procedures
@@ -415,6 +443,7 @@ void free(void *ap) {
 * pass by reference
 * pass by value-result
     * similar result to pass by reference, except that no actual alias is established.
+    * Known as copy-in, copy-out, or copy-restore.
         1. the value of the argument is copied and used in the procedure.
         2. the final value of the parameter is copied back out to the location of the argument.
 * pass by name
@@ -424,10 +453,10 @@ void free(void *ap) {
 **Difference of reference and value-result**
 
 ```c
-void p(int x, int y) {
+void p(int x, int y) {  // copy in: x = a = 1; y = a = 1;
     ++x;
     ++y;
-}
+}                       // copy out: a = x = 2; a = y = 2;
 int main() {
     int a = 1;
     p(a, a);

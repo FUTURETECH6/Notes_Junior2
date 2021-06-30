@@ -1,10 +1,18 @@
 词法分析
 
+[TOC]
+
+# Scanning Process
+
+# Regular Expr
+
 ```
 [abcd]
 [a-z]
 [a-z A-Z]
 ```
+
+# Finate Automata
 
 用code表示DFA和NFA
 
@@ -18,7 +26,7 @@
 
 ![](assets/image-20210312125218866.png)
 
-## the Subset Construction(NFA -> DFA)
+## the Subset Construction (NFA -> DFA)
 
 中文课本P48
 

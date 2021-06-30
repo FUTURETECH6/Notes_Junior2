@@ -119,36 +119,31 @@ error[E0382]: borrow of moved value: `s`
 
 ```rust
 fn main() {
-    let s1 = gives_ownership(); // gives_ownership 将返回值
-                                // 移给 s1
+    let s1 = gives_ownership(); // gives_ownership将返回值移给s1
 
-    let s2 = String::from("hello"); // s2 进入作用域
+    let s2 = String::from("hello2"); // s2进入作用域
 
-    let s3 = takes_and_gives_back(s2); // s2 被移动到
-                                       // takes_and_gives_back 中,
-                                       // 它也将返回值移给 s3
+    let s3 = takes_and_gives_back(s2); // s2被移动到takes_and_gives_back中,它也将返回值移给s3
 
     println!("{}", s1);
     println!("{}", s2);
-// error:          ^^ value borrowed here after move
+    // error:      ^^ value borrowed here after move
     println!("{}", s3);
-} // 这里, s3 移出作用域并被丢弃。s2 也移出作用域，但已被移走，
-  // 所以什么也不会发生。s1 移出作用域并被丢弃
+} // 这里，s3移出作用域并被丢弃。s2也移出作用域，但已被移走，所以什么也不会发生。s1移出作用域并被丢弃
 
 fn gives_ownership() -> String {
-    // gives_ownership 将返回值移动给
-    // 调用它的函数
+    // gives_ownership 将返回值移动给调用它的函数
 
-    let some_string = String::from("hello"); // some_string 进入作用域.
+    let some_string = String::from("hello1"); // some_string进入作用域.
 
-    some_string // 返回 some_string 并移出给调用的函数
+    some_string // 返回some_string并移出给调用的函数
 }
 
-// takes_and_gives_back 将传入字符串并返回该值
+// takes_and_gives_back将传入字符串并返回该值
 fn takes_and_gives_back(a_string: String) -> String {
-    // a_string 进入作用域
+    // a_string进入作用域
 
-    a_string // 返回 a_string 并移出给调用的函数
+    a_string // 返回a_string并移出给调用的函数
 }
 
 ```
@@ -174,7 +169,7 @@ fn change(some_string: &String) {
 }
 ```
 
-
+正解：
 
 ```rust
 fn main() {
@@ -189,6 +184,9 @@ fn change(some_string: &mut String) {
 ```
 
 ### Data Race
+
+* ==只能有一个可变引用==
+* ==不能同时有不可变引用和可变引用==
 
 ```rust
 let mut s = String::from("hello");
@@ -220,9 +218,7 @@ fn dangle() -> &String {
     let s = String::from("hello"); // s 是一个新字符串
 
     &s // 返回字符串 s 的引用
-} // 这里 s 离开作用域并被丢弃。其内存被释放。
-  // 危险！
-
+} // 这里 s 离开作用域并被丢弃。其内存被释放。危险！
 
 
 // Solution：不返回引用，直接返回String，交出所有权
@@ -234,4 +230,30 @@ fn no_dangle() -> String {
 ```
 
 ## [Slice 类型](https://kaisery.github.io/trpl-zh-cn/ch04-03-slices.html#slice-类型)
+
+```rust
+fn main() {
+    // let s = String::from("hello world");
+    let s = "hello world";
+
+    print!("{}", first_word(&s))
+}
+
+// fn first_word(s: &String) -> &str {
+fn first_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+
+    &s[..]
+}
+```
+
+## Str & String
+
+[What are the differences between Rust's `String` and `str`? - Stack Overflow](https://stackoverflow.com/questions/24158114/what-are-the-differences-between-rusts-string-and-str)
 
