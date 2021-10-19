@@ -118,7 +118,7 @@ main
 
 1. Compute the arguments and store them in their correct positions in the new activation record of the procedure;
 2. Store the fp as the control link in the new activation record;（就相当于old fp）
-3. Change the fp so that it points to the beginning of the new activation record;（fp := sp）
+3. ==Change the fp so that it points to the beginning of the new activation record;（fp := sp）==
 4. Store the return address in the new activation record;（存RA）
 5. Perform a jump to the code of the procedure to be called.（jmp）
 

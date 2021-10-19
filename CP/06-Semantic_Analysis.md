@@ -62,13 +62,13 @@ digit -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
 属性文法表为：
 
-| 文法规则                     | 语义规则                                       |
-| ---------------------------- | ---------------------------------------------- |
-| number~1~ -> number~2~ digit | number~1~.val = number~2~.val \* 10 + digit.va |
-| number > digit               | number.val = digit.val                         |
-| digit -> **0**               | digit.val = 0                                  |
-| ...                          | ...                                            |
-| digit -> **9**               | digit.val = 9                                  |
+| 文法规则                     | 语义规则                                        |
+| ---------------------------- | ----------------------------------------------- |
+| number~1~ -> number~2~ digit | number~1~.val = number~2~.val \* 10 + digit.val |
+| number > digit               | number.val = digit.val                          |
+| digit -> **0**               | digit.val = 0                                   |
+| ...                          | ...                                             |
+| digit -> **9**               | digit.val = 9                                   |
 
 <u>\* 加粗与不加粗：文法中加粗表示这是一个symbol，而digital.val = x中不加粗表示这个digit(数字)的val(数值)为0</u>
 
@@ -146,6 +146,7 @@ digit -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
      * Type
           * inheritance from parent to siblings: <img src="assets/image-20210512140604332.png" style="zoom:50%;" />
           * inheritance from sibling to sibling: <img src="assets/image-20210512140608711.png" style="zoom:50%;" />
+          * 通过同属(sibling)指针的同属继承：<img src="assets/image-20210701133732062.png" style="zoom:50%;" />
      * 继承属性的计算可以通过前序遍历或前序/中序遍历的组合来进行
           * ```pseudocode
                Procedure PreEval(T: treenode);
@@ -165,6 +166,17 @@ digit -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
 - 通过符号表存储
 - 基本的数据结构有`insert`、`lookup`和`delete`
+
+## The computation of attributes during parsing
+
+L-attributed Definition:
+An attribute grammar for attribute a1, …, ak is L-attributed if , for each inherited attribute aj and each grammar rule:
+	    X0  X1X2…Xn
+    The associated equations for aj are all of the form:
+	Xi.aj=fij(X0.a1,,X0.ak, X1.al,…,X1.ak,.Xi-1.a1, …Xi-1.ak)
+S-attributed grammar is L-attributed grammar. 
+
+## ~~The dependence of attributes computation on the syntax~~
 
 # Symbol Table
 
@@ -318,6 +330,22 @@ How to avoid?
     * similar to a record declaration, except <u>it includes the definition of methods</u>
 
 ## Type names, type declarations and recursive type
+
+## Type equivalence
+
+* structural equivalence
+    * 当且仅当类型语法树相同（主要针对结构体）
+    * 问题
+        * 大小和类型不一样的数组会被视为不等价的
+        * 看顺序：`int float`和`float int`不等价
+* name equivalence
+    * 名字是否一样：`t1 = int; t2 = int;`类型t1和t2是不等价的（因为名字不同），对int也不等价
+    * `Stack{int, bool}; Set{int, bool};`, Stack and Set在name下不是同一个type，在structural下是（[structural equivalence vs name equivalence - Stack Overflow](https://stackoverflow.com/questions/4486401/structural-equivalence-vs-name-equivalence)）
+* declaration equivalence
+    * 每个类型名等价于某个基类型名：`t1 = t2;`
+    * 例如`t1 = int; t2 = int;`中t1和t2对int等价（即它们仅是类型名int的别名）
+
+Pascal 使用说明等价，C 对结构和联合使用说明等价，对指针和数组使用结构等价。
 
 # A semantic analyzer for the TINY language
 
