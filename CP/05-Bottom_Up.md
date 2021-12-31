@@ -154,7 +154,7 @@ LR(0)分析算法(LR(0) parsing algorithm)。令s为当前的状态(位于分析
 
 * ==r-r conflict：两个完整项共存则出现r-r冲突==
 
-    
+
 
 ==LR(0)文法不可能是二义的==
 
